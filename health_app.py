@@ -132,7 +132,7 @@ def main():
                 id_select= pd.DataFrame(id.data)
                 id_auswählen = st.selectbox("ID zum löschen auwählen",(id_select["id"]))
         except:
-                st.write("Datenbank kann nicht geladen werden.")
+                st.write("Keine Datensätze zum Löschen vorhanden.")
         if st.button("Löschen bestätigen"):
             try:
                 supabase_client.table("health").delete().eq('id', id_auswählen).execute()
